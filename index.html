@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — L.E.O. Orbital Panic | Oh Geez! Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Exo+2:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cyan: #59E5FF;
+      --magenta: #fc40ff;
+      --dark: #07070f;
+      --dark-mid: #0d0d1a;
+      --dark-panel: #0a0a16;
+      --text: #c8c8e8;
+      --text-dim: #7070a0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--dark);
+      color: var(--text);
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Star field background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 40% 8%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 25%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 75%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 45%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 35% 90%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 85%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(2px 2px at 5% 55%, rgba(89,229,255,0.3) 0%, transparent 100%),
+        radial-gradient(2px 2px at 85% 10%, rgba(252,64,255,0.2) 0%, transparent 100%),
+        radial-gradient(2px 2px at 45% 70%, rgba(89,229,255,0.2) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Ambient glow */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(89,229,255,0.04) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .studio-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .game-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(28px, 6vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--cyan) 0%, #a0f0ff 50%, var(--magenta) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-subtitle {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: var(--magenta);
+      opacity: 0.85;
+    }
+
+    .header-line {
+      display: block;
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      margin: 28px auto 0;
+    }
+
+    /* Panel */
+    .panel {
+      background: var(--dark-panel);
+      border: 1px solid rgba(89,229,255,0.12);
+      border-radius: 12px;
+      padding: 40px 44px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(89,229,255,0.4), transparent);
+    }
+
+    .panel-label {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      color: var(--cyan);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      opacity: 0.7;
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--cyan);
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+      margin-top: 32px;
+    }
+
+    h2:first-of-type { margin-top: 0; }
+
+    p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(89,229,255,0.3);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    a:hover {
+      color: #fff;
+      border-color: var(--cyan);
+    }
+
+    .updated {
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .highlight {
+      color: var(--magenta);
+      font-weight: 500;
+    }
+
+    /* Divider */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(89,229,255,0.1);
+      margin: 24px 0;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(89,229,255,0.08);
+    }
+
+    .footer-studio {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--text-dim);
+      opacity: 0.6;
+    }
+
+    @media (max-width: 600px) {
+      .panel { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <header>
+      <p class="studio-name">Oh Geez! Games</p>
+      <h1 class="game-title">L.E.O. Orbital Panic</h1>
+      <p class="page-subtitle">Privacy Policy</p>
+      <span class="header-line"></span>
+    </header>
+
+    <p class="updated">Last updated: March 2026</p>
+
+    <div class="panel">
+      <p class="panel-label">Overview</p>
+
+      <p>Oh Geez! Games ("we", "us", or "our") operates the mobile game <span class="highlight">L.E.O. Orbital Panic</span> (the "App"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our App.</p>
+
+      <p>We are committed to protecting your privacy. This policy is intended to be straightforward and transparent.</p>
+    </div>
+
+    <div class="panel">
+      <p class="panel-label">Data Collection</p>
+
+      <h2>What We Collect</h2>
+      <p>In its current form, L.E.O. Orbital Panic does <span class="highlight">not collect, transmit, or store any personal data</span> on external servers. Your high score and game preferences are stored locally on your device only and are never sent to us or any third party.</p>
+
+      <hr class="divider" />
+
+      <h2>Third-Party Advertising</h2>
+      <p>Future versions of this App may include advertising provided by Google AdMob. When advertising is introduced, AdMob may collect certain data including device identifiers, IP address, and usage data in order to serve personalised or non-personalised advertisements.</p>
+      <p>You will be notified of any such changes through an updated version of this privacy policy. For information on how Google uses data from apps that use AdMob, please visit: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+
+      <hr class="divider" />
+
+      <h2>In-App Purchases</h2>
+      <p>Future versions of this App may offer optional in-app purchases processed through Google Play Billing. We do not collect or store any payment information — all transactions are handled entirely by Google Play.</p>
+
+      <hr class="divider" />
+
+      <h2>Children's Privacy</h2>
+      <p>This App is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us and we will take steps to remove that information.</p>
+
+      <hr class="divider" />
+
+      <h2>Links to Other Sites</h2>
+      <p>The App's share feature may open third-party applications such as WhatsApp, X (Twitter), or Telegram. These are governed by their own privacy policies and we have no control over their data practices.</p>
+
+      <hr class="divider" />
+
+      <h2>Changes to This Policy</h2>
+      <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date above. We recommend reviewing this page periodically.</p>
+
+      <hr class="divider" />
+
+      <h2>Contact Us</h2>
+      <p>If you have any questions about this privacy policy, please contact us at:<br>
+      <a href="mailto:hello@ohgeezgames.com">hello@ohgeezgames.com</a></p>
+    </div>
+
+    <footer>
+      <p class="footer-studio">Oh Geez! Games</p>
+      <p class="footer-copy">© 2026 Oh Geez! Games. All rights reserved.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
