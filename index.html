@@ -260,12 +260,12 @@
       overflow: hidden;
       transition: all 0.3s ease;
       background: var(--dark-mid);
-      aspect-ratio: 9/19;
+      aspect-ratio: 1075/1910;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .screenshot-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .screenshot-frame img { width: 100%; height: 100%; object-fit: contain; display: block; }
     .screenshot-frame:hover {
       border-color: var(--cyan);
       box-shadow: var(--glow-cyan);
@@ -502,7 +502,7 @@
     <p class="footer-logo">Oh Geez! Games</p>
     <div class="footer-links">
       <a href="/privacy-policy">Privacy Policy</a>
-      <a href="mailto:hello@ohgeezgames.com">Contact</a>
+      <a href="/cdn-cgi/l/email-protection#a3cbc6cfcfcce3cccbc4c6c6d9c4c2cec6d08dc0ccce">Contact</a>
       <a href="https://play.google.com/store/apps/details?id=com.ohgeezgames.leo.orbitalpanic">Google Play</a>
     </div>
     <p class="footer-copy">© 2026 Oh Geez! Games — Made in Godot 4 — Kilkenny, Ireland</p>
@@ -510,7 +510,7 @@
 
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Starfield
   const canvas = document.getElementById('starfield');
   const ctx = canvas.getContext('2d');
@@ -544,12 +544,4 @@
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      }
-    });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
-</script>
-
-</body>
-</html>
+        setTimeout(() => entry.target
