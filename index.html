@@ -228,46 +228,4 @@
 
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Starfield
-  const canvas = document.getElementById("starfield");
-  const ctx = canvas.getContext("2d");
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  document.body.style.background = "transparent";
-  resize();
-  window.addEventListener("resize", resize);
-  const stars = Array.from({ length: 220 }, () => ({
-    x: Math.random(), y: Math.random(),
-    r: Math.random() * 1.4 + 0.2,
-    base: Math.random() * 0.6 + 0.1,
-    speed: Math.random() * 0.015 + 0.004,
-    phase: Math.random() * Math.PI * 2,
-  }));
-  let t = 0;
-  function drawStars() {
-    ctx.fillStyle = "#020408";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    t += 0.005;
-    stars.forEach(s => {
-      const alpha = s.base * (0.5 + 0.5 * Math.sin(t * s.speed * 100 + s.phase));
-      ctx.beginPath();
-      ctx.arc(s.x * canvas.width, s.y * canvas.height, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(255,255,255," + alpha + ")";
-      ctx.fill();
-    });
-    requestAnimationFrame(drawStars);
-  }
-  drawStars();
-
-  // Scroll reveal
-  const reveals = document.querySelectorAll(".reveal");
-  reveals.forEach(el => el.classList.add("hidden"));
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.remove("hidden");
-          entry.target.classList
+<script src="stars.js" defer></script>
