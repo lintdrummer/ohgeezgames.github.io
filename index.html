@@ -20,367 +20,94 @@
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      background: var(--dark);
-      color: #c8d8e8;
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 18px;
-      overflow-x: hidden;
-    }
-
-    /* STARFIELD */
-    #starfield {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
+    body { background: var(--dark); color: #c8d8e8; font-family: "Rajdhani", sans-serif; font-size: 18px; overflow-x: hidden; }
+    #starfield { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
     .page { position: relative; z-index: 1; }
 
     /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 60px 24px;
-      position: relative;
-    }
-
-    .studio-name {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 6px;
-      color: rgba(0, 212, 255, 0.5);
-      text-transform: uppercase;
-      margin-bottom: 40px;
-      animation: fadeInDown 1s ease both;
-    }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 24px; position: relative; }
+    .studio-name { font-family: "Orbitron", sans-serif; font-size: 11px; letter-spacing: 6px; color: rgba(0,212,255,0.5); text-transform: uppercase; margin-bottom: 60px; animation: fadeInDown 1s ease both; }
 
     /* PLANET */
-    .planet-wrap {
-      position: relative;
-      width: 240px;
-      height: 240px;
-      margin: 0 auto 50px;
-      animation: fadeInDown 1s ease 0.1s both;
-    }
-    .planet-circle {
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #2a6080, #0a1a28 60%, #020810);
-      border: 1px solid rgba(0, 212, 255, 0.3);
-      box-shadow: 0 0 60px rgba(0,212,255,0.15), inset -20px -20px 40px rgba(0,0,0,0.8);
-      position: absolute;
-      top: 20px; left: 20px;
-    }
-    .orbit-ring {
-      position: absolute;
-      top: 0; left: 0;
-      width: 240px; height: 240px;
-      border-radius: 50%;
-      border: 1px solid rgba(0, 212, 255, 0.3);
-      animation: spinOrbit 7s linear infinite;
-    }
-    .orbit-dot {
-      position: absolute;
-      top: -5px; left: 50%;
-      transform: translateX(-50%);
-      width: 10px; height: 10px;
-      background: var(--cyan);
-      border-radius: 50%;
-      box-shadow: var(--glow-cyan);
-    }
-    .orbit-ring-outer {
-      position: absolute;
-      top: -20px; left: -20px;
-      width: 280px; height: 280px;
-      border-radius: 50%;
-      border: 1px solid rgba(252, 64, 255, 0.2);
-      animation: spinOrbit 13s linear infinite reverse;
-    }
-    .orbit-dot-outer {
-      position: absolute;
-      bottom: -4px; left: 50%;
-      transform: translateX(-50%);
-      width: 7px; height: 7px;
-      background: var(--magenta);
-      border-radius: 50%;
-      box-shadow: var(--glow-magenta);
-    }
-    @keyframes spinOrbit {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+    .planet-wrap { position: relative; width: 240px; height: 240px; margin: 0 auto 50px; animation: fadeInDown 1s ease 0.1s both; }
+    .planet-circle { width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #2a6080, #0a1a28 60%, #020810); border: 1px solid rgba(0,212,255,0.3); box-shadow: 0 0 60px rgba(0,212,255,0.15), inset -20px -20px 40px rgba(0,0,0,0.8); position: absolute; top: 20px; left: 20px; }
+    .orbit-ring { position: absolute; top: 0; left: 0; width: 240px; height: 240px; border-radius: 50%; border: 1px solid rgba(0,212,255,0.3); animation: spinOrbit 7s linear infinite; }
+    .orbit-dot { position: absolute; top: -5px; left: 50%; transform: translateX(-50%); width: 10px; height: 10px; background: var(--cyan); border-radius: 50%; box-shadow: var(--glow-cyan); }
+    .orbit-ring-outer { position: absolute; top: -20px; left: -20px; width: 280px; height: 280px; border-radius: 50%; border: 1px solid rgba(252,64,255,0.2); animation: spinOrbit 13s linear infinite reverse; }
+    .orbit-dot-outer { position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%); width: 7px; height: 7px; background: var(--magenta); border-radius: 50%; box-shadow: var(--glow-magenta); }
+    @keyframes spinOrbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
     /* LOGO */
     .game-logo { margin-bottom: 16px; animation: fadeInDown 1s ease 0.2s both; }
-    .game-logo .leo {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(72px, 15vw, 130px);
-      font-weight: 900;
-      color: var(--cyan);
-      text-shadow: var(--glow-cyan);
-      letter-spacing: -2px;
-      line-height: 1;
-      display: block;
-    }
-    .subtitle-wrap {
-      display: inline-block;
-      border: 2px solid var(--magenta);
-      border-radius: 50px;
-      padding: 8px 32px;
-      margin-top: 14px;
-      box-shadow: var(--glow-magenta);
-    }
-    .subtitle {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(13px, 3vw, 20px);
-      font-weight: 700;
-      color: var(--magenta);
-      letter-spacing: 4px;
-    }
-
-    .tagline {
-      font-size: clamp(15px, 2.5vw, 20px);
-      font-weight: 300;
-      color: rgba(200, 216, 232, 0.6);
-      letter-spacing: 2px;
-      margin: 28px 0 44px;
-      animation: fadeInDown 1s ease 0.3s both;
-    }
+    .game-logo .leo { font-family: "Orbitron", sans-serif; font-size: clamp(72px, 15vw, 130px); font-weight: 900; color: var(--cyan); text-shadow: var(--glow-cyan); letter-spacing: -2px; line-height: 1; display: block; }
+    .subtitle-wrap { display: inline-block; border: 2px solid var(--magenta); border-radius: 50px; padding: 8px 32px; margin-top: 14px; box-shadow: var(--glow-magenta); }
+    .subtitle { font-family: "Orbitron", sans-serif; font-size: clamp(13px, 3vw, 20px); font-weight: 700; color: var(--magenta); letter-spacing: 4px; }
+    .tagline { font-size: clamp(15px, 2.5vw, 20px); font-weight: 300; color: rgba(200,216,232,0.6); letter-spacing: 2px; margin: 28px 0 44px; animation: fadeInDown 1s ease 0.3s both; }
 
     /* BUTTONS */
-    .cta-group {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
-      animation: fadeInDown 1s ease 0.4s both;
-    }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--cyan);
-      color: #000d14;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      padding: 16px 32px;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      box-shadow: var(--glow-cyan);
-    }
+    .cta-group { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; animation: fadeInDown 1s ease 0.4s both; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--cyan); color: #000d14; font-family: "Orbitron", sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; padding: 16px 32px; border-radius: 4px; text-decoration: none; transition: all 0.2s ease; box-shadow: var(--glow-cyan); }
     .btn-primary:hover { background: white; transform: translateY(-2px); }
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid rgba(0, 212, 255, 0.3);
-      color: var(--cyan);
-      font-family: 'Orbitron', sans-serif;
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 2px;
-      padding: 16px 32px;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
+    .btn-secondary { display: inline-flex; align-items: center; border: 1px solid rgba(0,212,255,0.3); color: var(--cyan); font-family: "Orbitron", sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 2px; padding: 16px 32px; border-radius: 4px; text-decoration: none; transition: all 0.2s ease; }
     .btn-secondary:hover { border-color: var(--cyan); background: rgba(0,212,255,0.05); transform: translateY(-2px); }
 
     /* SCROLL HINT */
-    .scroll-hint {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      opacity: 0.35;
-      margin-top: 48px;
-      animation: fadeInDown 1s ease 1.2s both;
-    }
+    .scroll-hint { display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.35; margin-top: 48px; animation: fadeInDown 1s ease 1.2s both; }
     .scroll-hint span { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; }
-    .scroll-line {
-      width: 1px; height: 40px;
-      background: linear-gradient(to bottom, var(--cyan), transparent);
-      animation: scrollPulse 2s ease-in-out infinite;
-    }
-    @keyframes scrollPulse {
-      0%,100% { opacity: 0.4; } 50% { opacity: 1; }
-    }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--cyan), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+    @keyframes scrollPulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
 
     /* SEPARATOR */
-    .sep {
-      width: 100%; height: 1px;
-      background: linear-gradient(to right, transparent, rgba(0,212,255,0.25), transparent);
-    }
+    .sep { width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(0,212,255,0.25), transparent); }
 
     /* SECTIONS */
     .section { padding: 100px 24px; }
-    .section-label {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 10px;
-      letter-spacing: 6px;
-      color: rgba(0,212,255,0.5);
-      text-transform: uppercase;
-      margin-bottom: 14px;
-      display: block;
-    }
-    .section-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(22px, 4vw, 40px);
-      font-weight: 700;
-      color: white;
-      margin-bottom: 56px;
-    }
+    .section-label { font-family: "Orbitron", sans-serif; font-size: 10px; letter-spacing: 6px; color: rgba(0,212,255,0.5); text-transform: uppercase; margin-bottom: 14px; display: block; }
+    .section-title { font-family: "Orbitron", sans-serif; font-size: clamp(22px, 4vw, 40px); font-weight: 700; color: white; margin-bottom: 56px; }
     .section-title span { color: var(--cyan); }
 
     /* SCREENSHOTS */
     .screenshots { text-align: center; }
-    .screenshot-row {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .screenshot-frame {
-      width: 180px;
-      border-radius: 18px;
-      border: 1px solid rgba(0,212,255,0.15);
-      overflow: hidden;
-      transition: all 0.3s ease;
-      background: var(--dark-mid);
-      aspect-ratio: 1075/1910;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .screenshot-frame img { width: 100%; height: 100%; object-fit: contain; display: block; }
-    .screenshot-frame:hover {
-      border-color: var(--cyan);
-      box-shadow: var(--glow-cyan);
-      transform: translateY(-8px) scale(1.02);
-    }
-    .screenshot-frame .placeholder {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 9px;
-      color: rgba(0,212,255,0.25);
-      letter-spacing: 2px;
-      text-align: center;
-      padding: 16px;
-    }
+    .screenshot-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
+    .screenshot-frame { width: 180px; border-radius: 18px; border: 1px solid rgba(0,212,255,0.15); overflow: hidden; transition: all 0.3s ease; background: var(--dark-mid); aspect-ratio: 9/19; display: flex; align-items: center; justify-content: center; }
+    .screenshot-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .screenshot-frame:hover { border-color: var(--cyan); box-shadow: var(--glow-cyan); transform: translateY(-8px) scale(1.02); }
 
     /* HOW TO PLAY */
     .how-to-play { max-width: 860px; margin: 0 auto; }
-    .controls-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-    .control-card {
-      background: var(--dark-panel);
-      border: 1px solid rgba(0,212,255,0.1);
-      border-radius: 8px;
-      padding: 28px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .control-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px; height: 100%;
-      background: var(--cyan);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
+    .controls-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .control-card { background: var(--dark-panel); border: 1px solid rgba(0,212,255,0.1); border-radius: 8px; padding: 28px; transition: all 0.3s ease; position: relative; overflow: hidden; }
+    .control-card::before { content: ""; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--cyan); opacity: 0; transition: opacity 0.3s; }
     .control-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-4px); }
     .control-card:hover::before { opacity: 1; }
-    .control-action {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--magenta);
-      margin-bottom: 10px;
-      text-shadow: var(--glow-magenta);
-    }
+    .control-action { font-family: "Orbitron", sans-serif; font-size: 18px; font-weight: 700; color: var(--magenta); margin-bottom: 10px; text-shadow: var(--glow-magenta); }
     .control-desc { font-size: 15px; font-weight: 300; color: rgba(200,216,232,0.65); line-height: 1.65; }
 
     /* STATS */
     .stats-section { text-align: center; padding: 80px 24px; }
-    .stats-row {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 60px;
-      max-width: 680px;
-      margin: 0 auto;
-    }
+    .stats-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 60px; max-width: 680px; margin: 0 auto; }
     .stat-item { display: flex; flex-direction: column; gap: 8px; }
-    .stat-number {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(36px, 7vw, 58px);
-      font-weight: 900;
-      color: var(--cyan);
-      text-shadow: var(--glow-cyan);
-    }
+    .stat-number { font-family: "Orbitron", sans-serif; font-size: clamp(36px, 7vw, 58px); font-weight: 900; color: var(--cyan); text-shadow: var(--glow-cyan); }
     .stat-label { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: rgba(200,216,232,0.4); }
 
     /* FINAL CTA */
-    .final-cta {
-      padding: 120px 24px;
-      text-align: center;
-      position: relative;
-    }
-    .final-cta::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
-      width: 500px; height: 400px;
-      background: radial-gradient(ellipse, rgba(252,64,255,0.05) 0%, transparent 70%);
-      pointer-events: none;
-    }
+    .final-cta { padding: 120px 24px; text-align: center; position: relative; }
+    .final-cta::before { content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 500px; height: 400px; background: radial-gradient(ellipse, rgba(252,64,255,0.05) 0%, transparent 70%); pointer-events: none; }
     .final-cta .section-title { margin-bottom: 20px; }
     .final-cta p { font-size: 17px; font-weight: 300; color: rgba(200,216,232,0.5); margin-bottom: 44px; letter-spacing: 1px; }
 
     /* FOOTER */
-    footer {
-      padding: 40px 24px;
-      text-align: center;
-      border-top: 1px solid rgba(0,212,255,0.07);
-    }
-    .footer-logo {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 12px; font-weight: 700;
-      color: rgba(0,212,255,0.35);
-      letter-spacing: 3px; margin-bottom: 16px;
-    }
+    footer { padding: 40px 24px; text-align: center; border-top: 1px solid rgba(0,212,255,0.07); }
+    .footer-logo { font-family: "Orbitron", sans-serif; font-size: 12px; font-weight: 700; color: rgba(0,212,255,0.35); letter-spacing: 3px; margin-bottom: 16px; }
     .footer-links { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
-    .footer-links a {
-      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      color: rgba(200,216,232,0.25); text-decoration: none; transition: color 0.2s;
-    }
+    .footer-links a { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,216,232,0.25); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--cyan); }
     .footer-copy { font-size: 11px; color: rgba(200,216,232,0.18); letter-spacing: 1px; }
 
     /* ANIMATIONS */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 1; transform: translateY(0); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.hidden { opacity: 0; transform: translateY(28px); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* RESPONSIVE */
@@ -404,27 +131,20 @@
   <!-- HERO -->
   <section class="hero">
     <p class="studio-name">Oh Geez! Games</p>
-
     <div class="planet-wrap">
       <div class="orbit-ring-outer"><div class="orbit-dot-outer"></div></div>
       <div class="planet-circle"></div>
       <div class="orbit-ring"><div class="orbit-dot"></div></div>
     </div>
-
     <div class="game-logo">
       <span class="leo">L.E.O.</span>
       <div class="subtitle-wrap"><span class="subtitle">Orbital Panic</span></div>
     </div>
-
     <p class="tagline">Simple controls. Brutal challenge.</p>
-
     <div class="cta-group">
-      <a href="https://play.google.com/store/apps/details?id=com.ohgeezgames.leo.orbitalpanic" class="btn-primary">
-        ▶ &nbsp;Get it on Google Play
-      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.ohgeezgames.leo.orbitalpanic" class="btn-primary">&#9658; &nbsp;Get it on Google Play</a>
       <a href="#how-to-play" class="btn-secondary">How to Play</a>
     </div>
-
     <div class="scroll-hint">
       <span>Scroll</span>
       <div class="scroll-line"></div>
@@ -464,7 +184,7 @@
       </div>
       <div class="control-card reveal">
         <p class="control-action">HOLD to Boost</p>
-        <p class="control-desc">Hold the boost button to launch to outer orbit. Watch the energy ring — it refills when you release.</p>
+        <p class="control-desc">Hold the boost button to launch to outer orbit. Watch the energy ring around the planet - it refills when you release.</p>
       </div>
       <div class="control-card reveal">
         <p class="control-action">SATELLITES</p>
@@ -479,7 +199,7 @@
   <section class="stats-section reveal">
     <div class="stats-row">
       <div class="stat-item"><span class="stat-number">2</span><span class="stat-label">Orbits</span></div>
-      <div class="stat-item"><span class="stat-number">∞</span><span class="stat-label">Satellites</span></div>
+      <div class="stat-item"><span class="stat-number">&#8734;</span><span class="stat-label">Satellites</span></div>
       <div class="stat-item"><span class="stat-number">1</span><span class="stat-label">Thumb</span></div>
     </div>
   </section>
@@ -491,9 +211,7 @@
     <h2 class="section-title">Ready to <span>Panic</span>?</h2>
     <p>Free to play. How long can you survive?</p>
     <div class="cta-group">
-      <a href="https://play.google.com/store/apps/details?id=com.ohgeezgames.leo.orbitalpanic" class="btn-primary">
-        ▶ &nbsp;Download Free on Android
-      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.ohgeezgames.leo.orbitalpanic" class="btn-primary">&#9658; &nbsp;Download Free on Android</a>
     </div>
   </section>
 
@@ -502,21 +220,21 @@
     <p class="footer-logo">Oh Geez! Games</p>
     <div class="footer-links">
       <a href="/privacy-policy">Privacy Policy</a>
-      <a href="/cdn-cgi/l/email-protection#a3cbc6cfcfcce3cccbc4c6c6d9c4c2cec6d08dc0ccce">Contact</a>
+      <a href="mailto:hello@ohgeezgames.com">Contact</a>
       <a href="https://play.google.com/store/apps/details?id=com.ohgeezgames.leo.orbitalpanic">Google Play</a>
     </div>
-    <p class="footer-copy">© 2026 Oh Geez! Games — Made in Godot 4 — Kilkenny, Ireland</p>
+    <p class="footer-copy">&copy; 2026 Oh Geez! Games &mdash; Made in Godot 4 &mdash; Kilkenny, Ireland</p>
   </footer>
 
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Starfield
-  const canvas = document.getElementById('starfield');
-  const ctx = canvas.getContext('2d');
+  const canvas = document.getElementById("starfield");
+  const ctx = canvas.getContext("2d");
   function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
   resize();
-  window.addEventListener('resize', resize);
+  window.addEventListener("resize", resize);
   const stars = Array.from({ length: 220 }, () => ({
     x: Math.random(), y: Math.random(),
     r: Math.random() * 1.4 + 0.2,
@@ -532,7 +250,7 @@
       const alpha = s.base * (0.5 + 0.5 * Math.sin(t * s.speed * 100 + s.phase));
       ctx.beginPath();
       ctx.arc(s.x * canvas.width, s.y * canvas.height, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255,255,255,${alpha})`;
+      ctx.fillStyle = "rgba(255,255,255," + alpha + ")";
       ctx.fill();
     });
     requestAnimationFrame(drawStars);
@@ -540,8 +258,20 @@
   drawStars();
 
   // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
+  const reveals = document.querySelectorAll(".reveal");
+  reveals.forEach(el => el.classList.add("hidden"));
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target
+        setTimeout(() => {
+          entry.target.classList.remove("hidden");
+          entry.target.classList.add("visible");
+        }, i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
