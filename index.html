@@ -19,10 +19,10 @@
       --glow-magenta: 0 0 20px rgba(252, 64, 255, 0.6), 0 0 60px rgba(252, 64, 255, 0.2);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--dark); color: #c8d8e8; font-family: "Rajdhani", sans-serif; font-size: 18px; overflow-x: hidden; }
-    #starfield { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-    .page { position: relative; z-index: 1; }
+    html { scroll-behavior: smooth; background: #020408; }
+    body { background: transparent !important; color: #c8d8e8; font-family: "Rajdhani", sans-serif; font-size: 18px; overflow-x: hidden; }
+    #starfield { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; display: block; }
+    .page { position: relative; z-index: 0; }
 
     /* HERO */
     .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 24px; position: relative; }
@@ -102,7 +102,7 @@
     .footer-links { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
     .footer-links a { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,216,232,0.25); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--cyan); }
-    .footer-copy { font-size: 11px; color: rgba(200,216,232,0.5); letter-spacing: 1px; }
+    .footer-copy { font-size: 11px; color: rgba(200,216,232,0.18); letter-spacing: 1px; }
 
     /* ANIMATIONS */
     @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
@@ -232,7 +232,7 @@
   // Starfield
   const canvas = document.getElementById("starfield");
   const ctx = canvas.getContext("2d");
-  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  function resize() { canvas.width = window.innerWidth || document.documentElement.clientWidth || 1920; canvas.height = window.innerHeight || document.documentElement.clientHeight || 1080; }
   resize();
   window.addEventListener("resize", resize);
   const stars = Array.from({ length: 220 }, () => ({
@@ -244,8 +244,9 @@
   }));
   let t = 0;
   function drawStars() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    t += 0.01;
+    ctx.fillStyle = "#020408";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    t += 0.005;
     stars.forEach(s => {
       const alpha = s.base * (0.5 + 0.5 * Math.sin(t * s.speed * 100 + s.phase));
       ctx.beginPath();
