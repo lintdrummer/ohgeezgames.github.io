@@ -39,7 +39,7 @@
 
     /* LOGO */
     .game-logo { margin-bottom: 16px; animation: fadeInDown 1s ease 0.2s both; }
-    .game-logo .leo { font-family: "Orbitron", sans-serif; font-size: clamp(72px, 15vw, 130px); font-weight: 900; color: var(--cyan); text-shadow: var(--glow-cyan); letter-spacing: -2px; line-height: 1; display: block; }
+    .game-logo .leo { font-family: "Orbitron", sans-serif; font-size: clamp(72px, 15vw, 130px); font-weight: 900; color: var(--cyan); text-shadow: 0 0 30px rgba(0, 212, 255, 0.5); letter-spacing: -2px; line-height: 1; display: block; }
     .subtitle-wrap { display: inline-block; border: 2px solid var(--magenta); border-radius: 50px; padding: 8px 32px; margin-top: 14px; box-shadow: var(--glow-magenta); }
     .subtitle { font-family: "Orbitron", sans-serif; font-size: clamp(13px, 3vw, 20px); font-weight: 700; color: var(--magenta); letter-spacing: 4px; }
     .tagline { font-size: clamp(15px, 2.5vw, 20px); font-weight: 300; color: rgba(200,216,232,0.6); letter-spacing: 2px; margin: 28px 0 44px; animation: fadeInDown 1s ease 0.3s both; }
@@ -69,13 +69,13 @@
     /* SCREENSHOTS */
     .screenshots { text-align: center; }
     .screenshot-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
-    .screenshot-frame { width: 180px; border-radius: 18px; border: 1px solid rgba(0,212,255,0.15); overflow: hidden; transition: all 0.3s ease; background: var(--dark-mid); aspect-ratio: 9/19; display: flex; align-items: center; justify-content: center; }
+    .screenshot-frame { width: 180px; border-radius: 18px; border: 1px solid rgba(0,212,255,0.15); overflow: hidden; transition: all 0.3s ease; background: var(--dark-mid); }
     .screenshot-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .screenshot-frame:hover { border-color: var(--cyan); box-shadow: var(--glow-cyan); transform: translateY(-8px) scale(1.02); }
 
     /* HOW TO PLAY */
     .how-to-play { max-width: 860px; margin: 0 auto; }
-    .controls-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .controls-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; } @media (max-width: 600px) { .controls-grid { grid-template-columns: 1fr; } }
     .control-card { background: var(--dark-panel); border: 1px solid rgba(0,212,255,0.1); border-radius: 8px; padding: 28px; transition: all 0.3s ease; position: relative; overflow: hidden; }
     .control-card::before { content: ""; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--cyan); opacity: 0; transition: opacity 0.3s; }
     .control-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-4px); }
@@ -220,7 +220,7 @@
     <p class="footer-logo">Oh Geez! Games</p>
     <div class="footer-links">
       <a href="/privacy-policy">Privacy Policy</a>
-      <a href="mailto:hello@ohgeezgames.com">Contact</a>
+      <a href="/cdn-cgi/l/email-protection#751d1019191a351a1d1210100f12141810065b161a18">Contact</a>
       <a href="https://play.google.com/store/apps/details?id=com.ohgeezgames.leo.orbitalpanic">Google Play</a>
     </div>
     <p class="footer-copy">&copy; 2026 Oh Geez! Games &mdash; Made in Godot 4 &mdash; Kilkenny, Ireland</p>
@@ -228,7 +228,7 @@
 
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Starfield
   const canvas = document.getElementById("starfield");
   const ctx = canvas.getContext("2d");
@@ -265,13 +265,4 @@
       if (entry.isIntersecting) {
         setTimeout(() => {
           entry.target.classList.remove("hidden");
-          entry.target.classList.add("visible");
-        }, i * 80);
-      }
-    });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
-</script>
-
-</body>
-</html>
+          entry.target.classList
