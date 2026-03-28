@@ -20,7 +20,7 @@
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; background: #020408; }
-    body { background: transparent !important; color: #c8d8e8; font-family: "Rajdhani", sans-serif; font-size: 18px; overflow-x: hidden; }
+    body { background: transparent; color: #c8d8e8; font-family: "Rajdhani", sans-serif; font-size: 18px; overflow-x: hidden; }
     #starfield { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; display: block; }
     .page { position: relative; z-index: 0; }
 
@@ -232,7 +232,11 @@
   // Starfield
   const canvas = document.getElementById("starfield");
   const ctx = canvas.getContext("2d");
-  function resize() { canvas.width = window.innerWidth || document.documentElement.clientWidth || 1920; canvas.height = window.innerHeight || document.documentElement.clientHeight || 1080; }
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  document.body.style.background = "transparent";
   resize();
   window.addEventListener("resize", resize);
   const stars = Array.from({ length: 220 }, () => ({
